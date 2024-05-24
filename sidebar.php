@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The sidebar containing the main widget area
  *
@@ -7,15 +8,9 @@
  * @package biddut
  */
 
-if ( !is_active_sidebar( 'blog-sidebar' ) ) {
+if (!is_active_sidebar('blog-sidebar')) {
     return;
 }
 ?>
 
-<?php dynamic_sidebar( 'blog-sidebar' );?>
-
-<?php 
-if( !is_active_sidebar('blog-sidebar')){
-    return
-}
-?>
+<?php dynamic_sidebar('blog-sidebar'); ?>
