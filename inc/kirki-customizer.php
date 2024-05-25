@@ -34,7 +34,9 @@ function header_top_section()
             'choices'     => [
                 'header_1'   => get_template_directory_uri() . '/inc/img/header/header-1.png',
                 'header_2' => get_template_directory_uri() . '/inc/img/header/header-2.png',
-                'header_3'  => get_template_directory_uri() . '/inc/img/header/header-3.png'
+                'header_3'  => get_template_directory_uri() . '/inc/img/header/header-3.png',
+                'header_4' => get_template_directory_uri() . '/inc/img/header/header-2.png',
+                'header_5'  => get_template_directory_uri() . '/inc/img/header/header-3.png'
             ],
             'default'     => 'header_1',
         ]
@@ -293,6 +295,7 @@ function header_social_section()
         [
             'title'       => esc_html__('Social Area', 'biddut'),
             'description' => esc_html__('Social URL.', 'biddut'),
+            'description' => esc_html__('For social hide just use blank', 'biddut'),
             'panel'       => 'panel_id',
             'priority'    => 120,
         ]
@@ -382,16 +385,16 @@ function header_logo_section()
             'label'       => esc_html__('Header Logo', 'biddut'),
             'description' => esc_html__('Theme Default/Primary Logo Here', 'biddut'),
             'section'     => 'header_logo_section',
-            'default'     => get_template_directory_uri() . '/assets/img/logo/logo-black.png',
+            'default'     => get_template_directory_uri() . '/assets/img/logo/white-logo.png',
         ]
     );
     new \Kirki\Field\Image(
         [
             'settings'    => 'header_secondary_logo',
-            'label'       => esc_html__('Header Secondary Logo / White', 'biddut'),
+            'label'       => esc_html__('Header Secondary Logo / Dark', 'biddut'),
             'description' => esc_html__('Theme Secondary Logo Here', 'biddut'),
             'section'     => 'header_logo_section',
-            'default'     => get_template_directory_uri() . '/assets/img/logo/logo.png',
+            'default'     => get_template_directory_uri() . '/assets/img/logo/black-logo.png',
         ]
     );
 

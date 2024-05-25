@@ -18,7 +18,7 @@ $header_top_email = get_theme_mod('header_email', __('biddut@support.com', 'bidd
 $header_top_phone = get_theme_mod('header_phone', __('+8801310-069824', 'biddut'));
 
 // Header Address Text
-$header_top_address_text = get_theme_mod('header_address', __('Dhaka 734 H, Bryan Burlington, NC 27215', 'biddut'));
+$header_top_address_text = get_theme_mod('header_address', __('76 San Fransisco Street. New York', 'biddut'));
 
 // Header charity Text
 $header_top_charity_text = get_theme_mod('header_top_charity_text', __('Connect with our charity', 'biddut'));
@@ -55,43 +55,47 @@ $header_auth_link = get_theme_mod('header_auth_link', "#");
 
 <header>
    <div class="tp-header-transparent border-color">
-      <!-- header top area start -->
-      <div class="tp-header-top-area tp-header-top-wrap tp-header-top-space p-relative black-bg">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-xl-6 col-lg-8 col-md-8 col-sm-6">
-                  <div class="tp-header-top-left-box text-center text-md-start">
-                     <ul>
-                        <li>
-                           <i class="flaticon-pin"></i>
-                           <a href="#">76 San Fransisco Street. New York</a>
-                           <p><?php echo $header_top_charity_text; ?></p>
-                        </li>
-                        <li class="d-none d-md-inline-block">
-                           <i class="flaticon-mail-1"></i>
-                           <a href="mailto:needhelp@company.com">needhelp@company.com</a>
-                        </li>
-                     </ul>
+      <?php if ($header_topbar_switch) : ?>
+         <!-- header top area start -->
+         <div class="tp-header-top-area tp-header-top-wrap tp-header-top-space p-relative black-bg">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="col-xl-6 col-lg-8 col-md-8 col-sm-6">
+                     <div class="tp-header-top-left-box text-center text-md-start">
+                        <ul>
+                           <?php if ($header_top_address_text) :  ?>
+                              <li>
+                                 <i class="flaticon-pin"></i>
+                                 <a href="<?php echo esc_url($header_top_address_link); ?>"><?php echo esc_html($header_top_address_text); ?></a>
+                                 <p><?php echo $header_top_charity_text; ?></p>
+                              </li>
+                           <?php endif; ?>
+                           <?php if ($header_top_email) : ?>
+
+                              <li class="d-none d-md-inline-block">
+                                 <i class="flaticon-mail-1"></i>
+                                 <a href="mailto:<?php echo esc_html($header_top_email); ?>"><?php echo esc_html($header_top_email); ?> </a>
+                              </li>
+                           <?php endif; ?>
+                        </ul>
+                     </div>
                   </div>
-               </div>
-               <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 d-none d-sm-block">
-                  <div class="tp-header-top-right-box text-end">
-                     <ul>
-                        <li>
-                           <div class="tp-header-top-right-social">
-                              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                              <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                              <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                           </div>
-                        </li>
-                     </ul>
+                  <div class="col-xl-6 col-lg-4 col-md-4 col-sm-6 d-none d-sm-block">
+                     <div class="tp-header-top-right-box text-end">
+                        <ul>
+                           <li>
+                              <div class="tp-header-top-right-social">
+                                 <?php biddut_header_social_profiles(); ?>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
-      <!-- header top area end -->
+         <!-- header top area end -->
+      <?php endif; ?>
 
       <!-- header area start -->
       <div id="header-sticky" class="tp-header-area tp-header-style-2 tp-header-style-3">
@@ -99,138 +103,15 @@ $header_auth_link = get_theme_mod('header_auth_link', "#");
             <div class="row align-items-center">
                <div class="col-xl-2 col-lg-4 col-md-4 col-6">
                   <div class="tp-header-logo">
-                     <a href="index.html">
-                        <img src="assets/img/logo/white-logo.png" alt="">
-                     </a>
+
+                     <?php echo biddut_header_logo(); ?>
+
                   </div>
                </div>
                <div class="col-xl-8 d-none d-xl-block">
                   <div class="tp-header-main-menu tp-header-menu-border-2 text-end text-xxl-start">
                      <nav class="tp-main-menu-content">
-                        <ul>
-                           <li class="has-dropdown">
-                              <a href="index.html">Home</a>
-                              <div class="tp-submenu submenu has-homemenu">
-                                 <div class="row gx-6 row-cols-1 row-cols-md-2 row-cols-xl-5">
-                                    <div class="col homemenu">
-                                       <div class="homemenu-thumb mb-15">
-                                          <img src="assets/img/menu/home-1.jpg" alt="">
-                                          <div class="homemenu-btn">
-                                             <a class="tp-menu-btn" href="index.html">Multi page</a>
-                                             <a class="tp-menu-btn" href="index-one-page.html">One Page</a>
-                                          </div>
-                                       </div>
-                                       <div class="homemenu-content text-center">
-                                          <h4 class="homemenu-title">
-                                             <a href="index.html">Home 01</a>
-                                          </h4>
-                                       </div>
-                                    </div>
-                                    <div class="col homemenu">
-                                       <div class="homemenu-thumb mb-15">
-                                          <img src="assets/img/menu/home-2.jpg" alt="">
-                                          <div class="homemenu-btn">
-                                             <a class="tp-menu-btn" href="index-2.html">Multi page</a>
-                                             <a class="tp-menu-btn" href="index-2-one-page.html">One Page</a>
-                                          </div>
-                                       </div>
-                                       <div class="homemenu-content text-center">
-                                          <h4 class="homemenu-title">
-                                             <a href="index-2.html">Home 02</a>
-                                          </h4>
-                                       </div>
-                                    </div>
-                                    <div class="col homemenu">
-                                       <div class="homemenu-thumb mb-15">
-                                          <img src="assets/img/menu/home-3.jpg" alt="">
-                                          <div class="homemenu-btn">
-                                             <a class="tp-menu-btn" href="index-3.html">Multi page</a>
-                                             <a class="tp-menu-btn" href="index-3-one-page.html">One Page</a>
-                                          </div>
-                                       </div>
-                                       <div class="homemenu-content text-center">
-                                          <h4 class="homemenu-title">
-                                             <a href="index-3.html">Home 03</a>
-                                          </h4>
-                                       </div>
-                                    </div>
-                                    <div class="col homemenu">
-                                       <div class="homemenu-thumb mb-15">
-                                          <img src="assets/img/menu/home-4.jpg" alt="">
-                                          <div class="homemenu-btn">
-                                             <a class="tp-menu-btn" href="index-4.html">Multi page</a>
-                                             <a class="tp-menu-btn" href="index-4-one-page.html">One Page</a>
-                                          </div>
-                                       </div>
-                                       <div class="homemenu-content text-center">
-                                          <h4 class="homemenu-title">
-                                             <a href="index-4.html">Home 04</a>
-                                          </h4>
-                                       </div>
-                                    </div>
-                                    <div class="col homemenu">
-                                       <div class="homemenu-thumb mb-15">
-                                          <img src="assets/img/menu/home-5.jpg" alt="">
-                                          <div class="homemenu-btn">
-                                             <a class="tp-menu-btn" href="index-5.html">View page</a>
-                                          </div>
-                                       </div>
-                                       <div class="homemenu-content text-center">
-                                          <h4 class="homemenu-title">
-                                             <a href="index-5.html">Home Page Dark</a>
-                                          </h4>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </li>
-                           <li class="has-dropdown">
-                              <a href="#">Pages</a>
-                              <ul class="submenu tp-submenu">
-                                 <li><a href="about-us.html">about us</a></li>
-                                 <li><a href="team.html">team</a></li>
-                                 <li><a href="team-details.html">team details</a></li>
-                                 <li><a href="testimonial.html">testimonial</a></li>
-                                 <li><a href="cart.html">cart</a></li>
-                                 <li><a href="checkout.html">checkout</a></li>
-                                 <li><a href="price.html">price</a></li>
-                                 <li><a href="faq.html">faq</a></li>
-                                 <li><a href="error.html">error</a></li>
-                              </ul>
-                           </li>
-                           <li class="has-dropdown">
-                              <a href="service.html">Service</a>
-                              <ul class="submenu tp-submenu">
-                                 <li><a href="service.html">service</a></li>
-                                 <li><a href="service-details.html">service details</a></li>
-                              </ul>
-                           </li>
-                           <li class="has-dropdown">
-                              <a href="project.html">Project</a>
-                              <ul class="submenu tp-submenu">
-                                 <li><a href="project.html">project</a></li>
-                                 <li><a href="project-details.html">project details</a></li>
-                              </ul>
-                           </li>
-                           <li class="has-dropdown">
-                              <a href="shop.html">Shop</a>
-                              <ul class="submenu tp-submenu">
-                                 <li><a href="shop.html">shop</a></li>
-                                 <li><a href="shop-details.html">shop details</a></li>
-                              </ul>
-                           </li>
-                           <li class="has-dropdown">
-                              <a href="blog.html">Blog</a>
-                              <ul class="submenu tp-submenu">
-                                 <li><a href="blog.html">blog standard</a></li>
-                                 <li><a href="blog-sidebar.html">blog sidebar</a></li>
-                                 <li><a href="blog-details.html">blog details</a></li>
-                              </ul>
-                           </li>
-                           <li>
-                              <a href="contact.html">Contact</a>
-                           </li>
-                        </ul>
+                        <?php biddut_header_menu(); ?>
                      </nav>
                   </div>
                </div>
