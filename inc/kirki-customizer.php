@@ -400,6 +400,16 @@ function header_logo_section()
 
     new \Kirki\Field\Image(
         [
+            'settings'    => 'header_search_logo',
+            'label'       => esc_html__('Header Search Logo', 'biddut'),
+            'description' => esc_html__('Search Logo Here', 'biddut'),
+            'section'     => 'header_logo_section',
+            'default'     => get_template_directory_uri() . '/assets/img/logo/white-logo.png',
+        ]
+    );
+
+    new \Kirki\Field\Image(
+        [
             'settings'    => 'preloader_logo',
             'label'       => esc_html__('Preloader Icon', 'biddut'),
             'description' => esc_html__('Preloader Icon Logo Here', 'biddut'),

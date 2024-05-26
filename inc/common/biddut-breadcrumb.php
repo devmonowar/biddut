@@ -112,6 +112,12 @@ add_action('biddut_before_main_content', 'biddut_breadcrumb_func');
 // biddut_search_form
 function biddut_search_form()
 {
+
+
+
+    $biddut_search_logo = get_template_directory_uri() . '/assets/img/logo/white-logo.png';
+
+    $biddut_search_logo_url = get_theme_mod('header_search_logo', $biddut_search_logo);
     ?>
 
 
@@ -121,11 +127,14 @@ function biddut_search_form()
                 <div class="col-xxl-12">
                     <div class="search__wrapper">
                         <div class="search__top d-flex justify-content-between align-items-center">
-                            <div class="search__logo">
-                                <a href="index.html">
-                                    <img src="assets/img/logo/white-logo.png" alt="">
-                                </a>
-                            </div>
+                            <?php if (!empty($biddut_search_logo_url)) : ?>
+
+                                <div class="search__logo">
+                                    <a href="<?php print esc_url(home_url('/')); ?>">
+                                        <img src="<?php print esc_url($biddut_search_logo_url); ?>" alt="<?php print esc_attr__('Search logo', 'biddut'); ?>" />
+                                    </a>
+                                </div>
+                            <?php endif; ?>
                             <div class="search__close">
                                 <button type="button" class="search__close-btn search-close-btn">
                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -136,9 +145,10 @@ function biddut_search_form()
                             </div>
                         </div>
                         <div class="search__form">
-                            <form action="#">
+                            <form action="<?php print esc_url(home_url('/')); ?>">
+                                <input type="text" name="s" class="search-input" value="<?php echo esc_attr(get_search_query()) ?>">
                                 <div class="search__input">
-                                    <input class="search-input-field" type="text" placeholder="Type here to search...">
+                                    <input class="search-input-field" type="text" name="s" value="<?php print esc_attr(get_search_query()) ?>" placeholder=<?php print esc_attr__('Search...', 'biddut'); ?>>
                                     <span class="search-focus-border"></span>
                                     <button type="submit">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
